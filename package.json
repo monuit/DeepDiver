@@ -1,0 +1,11 @@
+{
+  "name": "deepdiver",
+  "version": "0.1.0",
+  "description": "Chrome extension to enrich LinkedIn/X profiles using free data sources",
+  "main": "service-worker.js",
+  "scripts": {
+    "build": "echo 'no build step'",
+    "lint": "echo 'no linter configured'"
+  },
+  "license": "MIT"
+}
