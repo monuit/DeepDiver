@@ -62,3 +62,29 @@ If a push fails here, I'll report the exact error so you can follow the steps or
 
 ## License
 MIT
+
+## Packaging & Releases
+
+To make it easy for others to install, this repo includes a packaging script that creates a zip of the extension under `dist/` and a GitHub Actions workflow that creates a release when you push a tag like `v0.1.0`.
+
+Locally create the packaged zip:
+
+```powershell
+npm ci
+npm run package
+# result: dist/DeepDiver-0.1.0.zip
+```
+
+Install locally (user):
+
+1. Open Chrome -> chrome://extensions
+2. Enable Developer mode
+3. Click "Load unpacked" and select the extracted folder (or unpack the zip to a folder)
+
+Install from GitHub Release:
+
+1. Push a tag to trigger the release workflow: `git tag v0.1.0; git push origin v0.1.0`
+2. The Actions workflow `Release` will run, create a release, and upload the zip under `dist/` as an artifact.
+3. Download the zip from the release and install as above (Load unpacked after unzipping).
+
+If you want me to push a tag and create a release for you, tell me which version string to use and I'll push it.
