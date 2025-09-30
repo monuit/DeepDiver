@@ -18,7 +18,13 @@ jobs:
           node-version: '18'
 
       - name: Install deps
-        run: npm ci
+        run: |
+          # Use npm ci if lockfile exists, otherwise fall back to npm install
+          if [ -f package-lock.json ]; then
+            npm ci --no-audit --no-fund
+          else
+            npm install --no-audit --no-fund
+          fi
 
       - name: Build package
         run: npm run package
